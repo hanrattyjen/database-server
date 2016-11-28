@@ -17,13 +17,11 @@ class AnyValue < Sinatra::Base
     key = params[:somekey]
     value = params[:somevalue]
     new_hash = @pair.setKeyValue(key, value)
-    p new_hash
   end
 
   get '/get' do
     key = params[:somekey]
     value = @pair.getValue(key)
-    p value
   end
 
   # start the server if ruby file executed directly
