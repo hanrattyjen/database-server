@@ -15,20 +15,21 @@ class AnyValue < Sinatra::Base
   post '/setvalues' do
     @somekey = params[:somekey]
     @somevalue = params[:somevalue]
-    erb :values
-  end
-
-  get '/get' do
-    @somekey = params[:somekey]
-    @somevalue = params[:somevalue]
+    @data = Hash.new { |hash, key| hash[key] = @somekey }
+    @data[@somekey] = @somevalue
     erb :values
   end
 
   get '/getvalues' do
-    @somekey = params[:somekey]
-    @somevalue = params[:somevalue]
-    erb :values
+    puts @data
+    erb :getvalues
   end
+  #
+  # get '/getvalues' do
+  #   @somekey = params[:somekey]
+  #   @somevalue = params[:somevalue]
+  #   erb :values
+  # end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
