@@ -17,15 +17,16 @@ class AnyValue < Sinatra::Base
     @somevalue = params[:somevalue]
     @data = Hash.new { |hash, key| hash[key] = @somekey }
     @data[@somekey] = @somevalue
+    puts @data
     erb :values
   end
 
-  get '/getvalues' do
-    puts @data
-    erb :getvalues
-  end
-  #
   # get '/getvalues' do
+  #   puts @data
+  #   erb :getvalues
+  # end
+  #
+  # get '/get' do
   #   @somekey = params[:somekey]
   #   @somevalue = params[:somevalue]
   #   erb :values

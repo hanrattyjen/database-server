@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
   feature 'Enter key value pairs' do
     scenario 'submitting key value pairs' do
       visit('/')
@@ -9,5 +8,6 @@ require 'spec_helper'
       click_button 'Submit'
       expect(page).to have_content 'Key: Hey'
       expect(page).to have_content 'Value: Ho'
+      expect(current_path).to eq '/setvalues'
     end
   end
