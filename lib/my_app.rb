@@ -5,7 +5,7 @@ class AnyValue < Sinatra::Base
   set :port, 4000
 
   def initialize
-      super
+      super()
       @pair = Pair.new
   end
 
@@ -16,7 +16,8 @@ class AnyValue < Sinatra::Base
   get '/set' do
     key = params[:somekey]
     value = params[:somevalue]
-    @pair.setKeyValue(key, value)
+    new_hash = @pair.setKeyValue(key, value)
+    p new_hash
   end
 
   get '/get' do

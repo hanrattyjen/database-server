@@ -1,15 +1,15 @@
 class Pair
 
   def initialize
-    @stuff = Hash.new
+    @new_hash = Hash.new
   end
 
   def setKeyValue(key,value)
-    @stuff[key] = value
+    @new_hash[key] = value
   end
 
   def getValue(key)
-    @stuff[key]
+    @new_hash[key]
   end
 
 end
